@@ -49,6 +49,10 @@ public class Constants {
      public static final String Entercity="PUNE";
      public static final String Enterdistrict="Pune";
      public static final String Enterzipcode ="42220";
+     public static final String Enterdescription="CARGO SERVICE1";
+     //
+     
+     
     		//Airline details 
      public static final String airlineName = "Indigo airline";
      public static final String airlineIATA = "VMO";

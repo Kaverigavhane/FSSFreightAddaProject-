@@ -34,7 +34,6 @@ public class MasterModuleTestScripts extends TestBase{
 	public void verifyAdminLoginPage() {
 		signinpage= new AdminSignInPageObjects(driver);
 		signinpage.navigateUrl(Constants.URL) ; 
-		
 		Assert.assertTrue(signinpage.isUsernameTextboxDisplayed(),"The Username Textbox is not Displayed on Signin Page.");
 		Assert.assertTrue(signinpage.isPasswordTextboxDisplayed(),"The Password Textbox is not Displayed on Signin Page.");
 		Assert.assertTrue(signinpage.isforgotPasswordLinkEnabled(),"The Forgot Password Link is not Enabled on Signin Page.");
@@ -78,7 +77,6 @@ public class MasterModuleTestScripts extends TestBase{
 //		Assert.assertEquals(ExpectedValue.editButtonText,airline.isEditButtonTextDisplayed());
 //		Assert.assertEquals(ExpectedValue.cancelButtonText,airline.isCancelButtonTextDisplayed());
 		airline.clickOnCancelButton();
-		
 		airline.viewAirline();
 		Assert.assertEquals(ExpectedValue.airlineDetailsText,airline.isAirlinesDetailsTextDisplayed());  
 		Assert.assertEquals(ExpectedValue.editButtonText,airline.isEditButtonTextDisplayed());
@@ -91,7 +89,7 @@ public class MasterModuleTestScripts extends TestBase{
 		Assert.assertEquals(ExpectedValue.expectedEXCELDownloadSuccessfullMessage,airline.isEXCELgeneratedSuccessfullyMessageDisplayed());
 		airline.filterAirline(Constants.airlineName);	
 	}
-	/*
+	
 	
     @Test(priority=2,description="This testcase verifies Admin is able to Navigate to the  Admin"
     		+ " Card Page & Airline Page from Airline Create, Airline Details and Airline Update Pages.",enabled=true)
@@ -120,7 +118,6 @@ public class MasterModuleTestScripts extends TestBase{
 		Assert.assertEquals(ExpectedValue.adminCardText,airline.isAdminCardTextDisplayed());
 		airline.clickOnAirlineCard();
 		Assert.assertEquals(ExpectedValue.airlinesText,airline.isAirlinesTextDispleyed());
-		
 		airline.clickOnEditIcon();
 		Assert.assertEquals(ExpectedValue.airlineUpadteText,airline.isAirLineUpdateTextDisplayed());
 		airline.clickOnMasterLinkOnBreadcrumb();
@@ -136,13 +133,7 @@ public class MasterModuleTestScripts extends TestBase{
 		Assert.assertEquals(ExpectedValue.airlinesText,airline.isAirlinesTextDispleyed());
 	}
 	
-    @Test
-    public void navigateFunctionalityInAirlines() throws InterruptedException{
-    	signinpage= new AdminSignInPageObjects(driver);
-    	signinpage.adminLogin();
-		airline = new AirLinePageObject(driver);
-		airline.navigate();
-    }
+    
     
     @Test(priority=3,description="This testcase verifies Admin is able to Create,View,ExportAs,Edit,Filter the Branches.",enabled=true)
 	  public void verifyBranchesCreateViewExportAsEditFilter() throws InterruptedException {
@@ -354,8 +345,45 @@ public class MasterModuleTestScripts extends TestBase{
 	   serviceType.filterServiceType(Constants.serviceTypeName);
 }
 
-   */
-   
+   @Test(priority=9,description="This testcase verifies Admin is able to Navigate to the  Admin Card Page & Customer Page from Customer Create, Customer Details and Customer Update Pages.",enabled=true)
+   public void verifyNavigateFunctionalityInServiceTypeCard() throws InterruptedException{
+	   signinpage= new AdminSignInPageObjects(driver);
+	   signinpage.adminLogin();
+	   serviceType = new ServiceTypeObjects(driver);
+	   serviceType.clickOnMasterModule(); 
+	   Assert.assertEquals(ExpectedValue.adminCardText,serviceType.isAdminCardTextDisplayed());
+	   serviceType.clickOnServiceTypeCard(); 
+	   Assert.assertEquals(ExpectedValue.serviceTypeText,serviceType.isServiceTypeTextDispleyed());
+	   serviceType.clickOnMasterLinkOnBreadcrumb();
+	   Assert.assertEquals(ExpectedValue.adminCardText,serviceType.isAdminCardTextDisplayed());
+	   serviceType.clickOnServiceTypeCard(); 
+	   Assert.assertEquals(ExpectedValue.serviceTypeText,serviceType.isServiceTypeTextDispleyed());
+	   serviceType.clickOnCreateNew();
+	   Assert.assertEquals(ExpectedValue.serviceTypeCreateText,serviceType.isServiceTypeCreateTextDispleyed());
+	   serviceType.clickOnMasterLinkOnBreadcrumb();
+	   Assert.assertEquals(ExpectedValue.adminCardText,serviceType.isAdminCardTextDisplayed());
+	   serviceType.clickOnServiceTypeCard(); 
+	   Assert.assertEquals(ExpectedValue.serviceTypeText,serviceType.isServiceTypeTextDispleyed());
+	   serviceType.clickOnViewIcon();
+	   Assert.assertEquals(ExpectedValue.serviceTypeDetailsText,serviceType.isServiceTypeDetailsTextDisplayed()); 
+	   serviceType.clickOnMasterLinkOnBreadcrumb();
+	   Assert.assertEquals(ExpectedValue.adminCardText,serviceType.isAdminCardTextDisplayed());
+	   serviceType.clickOnServiceTypeCard(); 
+	   Assert.assertEquals(ExpectedValue.serviceTypeText,serviceType.isServiceTypeTextDispleyed());
+	   serviceType.clickOnEditIcon();
+	   Assert.assertEquals(ExpectedValue.serviceTypeUpadteText,serviceType.isServiceTypeUpdateTextDisplayed());
+	   serviceType.clickOnMasterLinkOnBreadcrumb();
+	   Assert.assertEquals(ExpectedValue.adminCardText,serviceType.isAdminCardTextDisplayed());
+	   serviceType.clickOnServiceTypeCard(); 
+	   serviceType.clickOnCreateNew();
+	   Assert.assertEquals(ExpectedValue.serviceTypeCreateText,serviceType.isServiceTypeCreateTextDispleyed());
+	   serviceType.clickOnServiceTypeLinkOnBreadcrumb();
+	   serviceType.clickOnEditIcon();
+	   Assert.assertEquals(ExpectedValue.serviceTypeUpadteText,serviceType.isServiceTypeUpdateTextDisplayed());
+	   serviceType.clickOnServiceTypeLinkOnBreadcrumb();
+	   Assert.assertEquals(ExpectedValue.serviceTypeText,serviceType.isServiceTypeTextDispleyed());
+   }
+
    
    
    

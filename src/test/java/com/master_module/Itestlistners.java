@@ -12,7 +12,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 
-public class Itestlistners extends MasterModuleTestScripts implements ITestListener {
+public class Itestlistners extends MasterModuleTestScripts  implements ITestListener {
 	ExtentSparkReporter htmlReporter; 
 	ExtentReports extent;
 	ExtentTest test;
@@ -48,7 +48,7 @@ public class Itestlistners extends MasterModuleTestScripts implements ITestListe
 		System.out.println("Test method sucess" +context.getMethod().toString());
 
 	}
-
+	
 	@Override 
 	public void onTestFailure(ITestResult context)  {
 		try {
@@ -61,13 +61,14 @@ public class Itestlistners extends MasterModuleTestScripts implements ITestListe
 		System.out.println("Test method failure"+context.getMethod().toString());
 
 	}
+	/*
 	@Override 
 	public void onTestSkipped(ITestResult context) { // TODO
 		test =  extent.createTest(context.getName());
 		System.out.println("Test method skkiped"+context.getMethod().toString());
 	}
 
-	/*
+	
 
 	  private void 
 	  captureScreenshot(String methodName) throws IOException { //

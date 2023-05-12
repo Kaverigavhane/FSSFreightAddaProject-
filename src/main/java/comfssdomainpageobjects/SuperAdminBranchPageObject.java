@@ -8,10 +8,10 @@ import org.testng.log4testng.Logger;
 
 import com.BasePackage.TestActions;
 
-public class SuperAdminCreateNewBranch extends TestActions{
+public class SuperAdminBranchPageObject extends TestActions{
 	WebDriver driver;
-	Logger log = Logger.getLogger(SuperAdminCreateNewBranch .class);
-		public  SuperAdminCreateNewBranch (WebDriver driver) {
+	Logger log = Logger.getLogger(SuperAdminBranchPageObject .class);
+		public  SuperAdminBranchPageObject (WebDriver driver) {
     	super(driver);
     	this.driver=driver;
 		PageFactory.initElements(driver, this);
@@ -21,13 +21,14 @@ public class SuperAdminCreateNewBranch extends TestActions{
 		public WebElement ActiveCompany;
 		
 		//select company
-		@FindBy(xpath="//tbody[@class='ant-table-tbody']")
+		@FindBy(xpath="//td[text()='Freight']")
 		public WebElement Company;
 		
-		@FindBy(xpath="//td[@class='ant-table-row-cell-break-word']//span//i[4]")
+		//clickon SettingCompany
+		@FindBy(xpath="//tbody[@class='ant-table-tbody']//tr[2]//td[4]//span//i[4]")
 		public WebElement SettingCompany;
 		
-		//
+		//SettingCompanyOkButton
 		@FindBy(xpath="//div[@class='ant-popover-inner']//button[2]")
 		public WebElement SettingCompanyOkButton;
 		
@@ -126,13 +127,62 @@ public class SuperAdminCreateNewBranch extends TestActions{
 		@FindBy(xpath="//button[@type='submit']")
 		public WebElement SubmitButton;
 		
+
+		@FindBy(xpath="//span[text()='Created Successfully']")
+		public WebElement CreatedSuccessfully;
 		
+		
+		@FindBy(xpath="//button[@class='ant-btn close-btn ant-btn-primary']")
+		public WebElement CloseButton;
+		//test cases edit view update
+		
+		//select branch
+		
+		@FindBy(xpath="((//tr[@class='ant-table-row ant-table-row-level-0'])[3]")
+		public WebElement select_branch;
+		
+		//view 
+		@FindBy(xpath="(//td[@class='ant-table-row-cell-break-word']//span//i[2]")
+		public WebElement ViewIcon;
+		
+		//CLICK ON OK BUTTON 
+		@FindBy(xpath="//button[@class='ant-btn ant-btn-primary ant-btn-sm']")
+		public WebElement ViewIconOKButton;
+		
+		//tbody[@class='ant-table-tbody']//tr[1]//td[3]//i[1]
+		@FindBy(xpath="//td[@class='ant-table-row-cell-break-word']//span//i[1]")
+		public WebElement EditButton;
+		
+		//button[@class='ant-btn ant-btn-primary ant-btn-sm']
+		
+		@FindBy(xpath="//div[@class='ant-popover-inner']//button[2]")
+		public WebElement EditOKButton;
+		
+		// CLICK ON UpdateButton
+		@FindBy(xpath="//button[@type='submit']")
+		public WebElement UpdateButton;
+		
+		//export as button
+		@FindBy(xpath="//button[@class='ant-btn ant-dropdown-trigger']")
+		public WebElement ExportAsbutton;
+		
+		
+		//Excelbutton
+		@FindBy(xpath="//i[@class='anticon anticon-file-excel']")
+		public WebElement Excelbutton;
 				
+		
+		//CSV button
+		@FindBy(xpath="//i[@class='anticon anticon-file']")
+		public WebElement CSVbutton;
+		
 		public void clickonActiveCompany()
 		{
 			this.click(ActiveCompany);
 		}
 		
+
+
 		public void clickonCompany()
 		{
 			this.click( Company);
@@ -157,6 +207,7 @@ public class SuperAdminCreateNewBranch extends TestActions{
 			this.click( CreateNewBranch);
 		}
 		
+		
 		public void enterCreatenewBranchDetails(String EnterBranchName,String EnterLocation,String EnterbranchCode,String Enteremail,String EntergstNumber) {
 			this.sendkeys(Enter_BranchName, EnterBranchName);
 			this.sendkeys(Enter_Location, EnterLocation);
@@ -165,9 +216,12 @@ public class SuperAdminCreateNewBranch extends TestActions{
 			this.sendkeys(Enter_gstNumber ,EntergstNumber );
 			this.click(Enter_gstState);
 			this.click(Select_gstNumber);
+			
 			 
 			
 		}
+		
+
 		public void enterBranchAddressDetails(String EnterAddress1,String EnterAddress2,String EnterPhoneNo,String  Entercity,String Enterdistrict,String Enterzipcode) throws InterruptedException {
 			this.click(Addressbutton);
 			this.click(AddressType);
@@ -182,8 +236,85 @@ public class SuperAdminCreateNewBranch extends TestActions{
 		    this.click(select_state);
 			this.sendkeys(Enter_zipcode, Enterzipcode);
 			this.click(SubmitButton);
-			
-			
+			this.click(CloseButton);
 		}
 		
+		//test case edit update view 
+		
+		//
+		public void clickonselect_branch()
+		{
+			this.click( select_branch);
+		}
+		//view
+		public void clickOnViewIcon()
+		{
+			this.click(ViewIcon);
+			
+		}
+		public void ClickonokButton()
+		{
+		this.click(ViewIconOKButton);
+		}
+		
+		//edit
+		public void clickOnEditIcon() {
+			this.click(EditButton);
+			this.click(EditOKButton);
+			
+	    }
+		public void Enter_branchCode1(String EnterbranchCode)
+		{
+			this.sendkeys(Enter_branchCode, EnterbranchCode);
+		}
+		
+		public void clickonUpdateButton()
+		{
+		this.click( UpdateButton);
+		}
+		
+		
+		public void clickonExportAsbutton()
+		{
+		this.click(ExportAsbutton);
+		}
+		public void clickonExcelbutton()
+		{
+		this.click(Excelbutton);
+		}
+		
+		public void clickonCSVbutton()
+		{
+		this.click(CSVbutton);
+		}
+		
+		public String isCreateNewButtonTextDisplayed() {
+			String CreateNewButtonText=CreateNewBranch.getText();
+			return CreateNewButtonText;
+		}
+		public String isCreatedSuccessfullyMessageDisplayed() {
+			String CreatedSuccessfullyMessage=CreatedSuccessfully.getText();
+			return CreatedSuccessfullyMessage;
+		}
+		public String isSubmitButtonTextDisplayed() {
+			String SaveButtonText=SubmitButton.getText();
+			return SaveButtonText;
 }
+		
+		public String isBranchLocationTextDisplayed() {
+			String branchLocationText=Enter_Location.getText();
+			return branchLocationText;
+		}
+		public String isBranchCodeTextDisplayed() {
+			String branchCodeText=Enter_branchCode.getText();
+			return branchCodeText;
+		}
+		public String isBranchGSTstateTextDisplayed() {
+			String branchGSTstateText=Enter_gstState.getText();
+			return branchGSTstateText;
+		}			
+}
+
+
+
+

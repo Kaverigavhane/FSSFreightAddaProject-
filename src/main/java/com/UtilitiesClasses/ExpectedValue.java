@@ -67,18 +67,27 @@ public class ExpectedValue {
 	public static final String serviceTypeCreateText = "Service Type Create";
 	public static final String serviceTypeLinkText = "Service Type";
 	public static final String serviceTypeUpadteText = "Service Type Update";
-	/*public static final String admincardtext = "Admin Card";
-	public static final String chargetypedetailstext = "Charge Type Details";
-	public static final String companyname = "krishna Tranport and Logistics company";
-	public static final String chargecode= "CHARGE";
-	public static final String chargetypename = "Transaction tax";
-	public static final String airlinenametext = "Indigo airline";
 	
-	public static final String chargeunitdetailstext = "Charge Unit Details";
-	public static final String  chargeunitname = "charge";
-	public static final String  servicetypedetailstext = "Service Type Details";
-	public static final String  servicetypetext = "PORT TO PORT";
-	public static final String  taxtypedetailstext = "Tax Type Details";
-
-*/
+	
+	
+	//SUPERADMIN CREATE COMPANY
+    public static final String CompanyName ="Freight";
+    
+    //SUPERADMIN CREATE NEW BRANCH
+    public static final String BranchLinkText = "Branches";
+    public static final String BranchCreatedSuccessfully="created successfully";
+    public static final String CreateNewBranch = "create new";
+	public static final String branchCode = "branch code";
+	public static final String gstState = "GST state";
+	public static final String SubmitButtont = "save";
+	public static String Location ="location";
+	public static final String CreatedSuccessfull = "Created Successfully";
+	
+	
+	
+	
+	
+	
+	
+	
 }

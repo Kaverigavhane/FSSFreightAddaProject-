@@ -193,7 +193,7 @@ public class ServiceTypeObjects extends TestActions {
 		return admincardText;
 	}
 	
-	public void clickOnAirlinesLinkOnBreadcrumb() {
+	public void clickOnServiceTypeLinkOnBreadcrumb() {
 		this.click(serviceTypeLinkOnBreadcrumb);
 	}
 	

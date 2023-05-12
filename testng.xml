@@ -3,10 +3,9 @@
 <suite name="Suite">
   <test  name="Test">
     <classes>
-     
+      <class name="com.master_module.MasterModuleTestScripts">
       
-      <class name="com.master_module.MasterModuleTestScripts"/>
-    
+				</class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
